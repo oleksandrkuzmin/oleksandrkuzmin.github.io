@@ -46,8 +46,9 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
+                    <button type="button" onclick="loadXMLDoc()">Generate patterns</button>
                     <div id="myDiv">
-                        <button type="button" onclick="loadXMLDoc()">Generate patterns</button>
+                        Pattern Library
                     </div>
                 </div>
             </div>
@@ -86,8 +87,9 @@
         var i;
         for(i = 0; i < arr.length; i++) {
             out += '<p>' + arr[i].site_id + '</p><br><p>';
+            out_new = out + 'JSON'
         }
-        document.getElementById("myDiv").innerHTML = out;
+        document.getElementById("myDiv").innerHTML = out_new;
     }
     }
     </script>
