@@ -66,7 +66,7 @@
     <!-- Get JSON Script -->
     <script>
     var xmlhttp = new XMLHttpRequest();
-    var url = "www.akuzmin.smartlingdemo.com/json/patterns.json";
+    var url = "http://www.akuzmin.smartlingdemo.com/json/patterns.json";
 
     xmlhttp.onreadystatechange = function() {
     
@@ -80,12 +80,14 @@
     xmlhttp.send();
 
     function myFunction(arr) {
-    var out = "";
-    var i;
-    for(i = 0; i < arr.length; i++) {
-        out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
-    }
-    document.getElementById("id01").innerHTML = out;
+        var out = "";
+        var i;
+        
+        for(i = 0; i < arr.length; i++) {
+            out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+        }
+        
+        document.getElementById("id01").innerHTML = out;
     }
     </script>
 
