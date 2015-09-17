@@ -242,6 +242,8 @@
 
    
    <link rel="stylesheet" href="//s-dashboard.smartling.com/09161936/static/dashboard-2.0/css/patterns.css"/>
+   <link rel="stylesheet" type="text/css" href="//s-dashboard.smartling.com/09161936/static/dashboard-2.0/css/glossary.css" />
+   <link rel="stylesheet" href="//s-dashboard.smartling.com/09161936/static/dashboard-2.0/css/tools.css"/>
 </head>
 <body class='default'>
 
@@ -320,86 +322,55 @@
                    <div id="mainNav"><div><div style="display: none;" class="navLoader"><div class="spinner centered"></div></div><div style="display: block;" class="navContent"><ul class="accordion nav nav-tabs nav-stacked"><li><a class="nav-item-translations collapsed" href="/translations/dashboard.htm"><span class="nav-icon"></span><span class="nav-text translations">Content</span></a><ul id="translationsSubNav" style="margin-bottom: 0" class="nav nav-stacked nav-tabs collapse in "><li><a class="nav-item-in_progress " href="/content/content.htm"><span class="nav-icon"></span><span class="nav-text ">Translations</span></a></li><li><a class="nav-item-jobs " href="/content/jobs.htm"><span class="nav-icon"></span><span class="nav-text ">Jobs</span></a></li><li><a class="nav-item-style_guide " href="/tools/style_guide.htm"><span class="nav-icon"></span><span class="nav-text ">Style Guide</span></a></li><li><a class="nav-item-glossary " href="/tools/glossary.htm"><span class="nav-icon"></span><span class="nav-text ">Glossary</span></a></li><li class="active"><a class="nav-item-pattern " href="/content/patterns.htm"><span class="nav-icon"></span><span class="nav-text ">Patterns</span></a></li><li><a class="nav-item-smart_match_content " href="/content/smart_match.htm"><span class="nav-icon"></span><span class="nav-text ">SmartMatch</span></a></li><li><a class="nav-item-fuzzy_estimate " href="/tools/fuzzy_estimate.htm"><span class="nav-icon"></span><span class="nav-text ">Fuzzy Estimates</span></a></li></ul></li><li><a class="nav-item-domains collapsed" href="/gdn/dashboard.htm"><span class="nav-icon"></span><span class="nav-text gdn">Global Delivery Network</span></a><ul id="domainsSubNav" style="margin-bottom: 0" class="nav nav-stacked nav-tabs collapse  "><li><a class="nav-item-gdn_domains " href="/domains/domains.htm"><span class="nav-icon"></span><span class="nav-text ">Domains</span></a></li><li><a class="nav-item-gdn_config " href="/gdn/configuration.htm"><span class="nav-icon"></span><span class="nav-text ">Configuration</span></a></li><li><a class="nav-item-gdn_content_swap " href="/content/content_swap.htm"><span class="nav-icon"></span><span class="nav-text ">Content Swaps</span></a></li></ul></li><li><a class="nav-item-team " href="/people.htm"><span class="nav-icon"></span><span class="nav-text people">Team</span></a></li><li><a class="nav-item-settings collapsed" href="/translations/translation_memory.htm"><span class="nav-icon"></span><span class="nav-text settings">Project Settings</span></a><ul id="settingsSubNav" style="margin-bottom: 0" class="nav nav-stacked nav-tabs collapse  "><li><a class="nav-item-translation_memory " href="/translations/translation_memory.htm"><span class="nav-icon"></span><span class="nav-text ">Translation Memory</span></a></li><li><a class="nav-item-translation_workflows " href="/translations/workflows.htm"><span class="nav-icon"></span><span class="nav-text ">Translation Workflow</span></a></li><li><a class="nav-item-fuzzy_profile " href="/tools/fuzzy_profile.htm"><span class="nav-icon"></span><span class="nav-text ">Fuzzy Match</span></a></li><li><a class="nav-item-machine_translation " href="/translations/machine_translation.htm"><span class="nav-icon"></span><span class="nav-text ">External Translation</span></a></li><li><a class="nav-item-translator_signup " href="/site/custom_dashboard.htm"><span class="nav-icon"></span><span class="nav-text ">Custom Dashboard</span></a></li><li><a class="nav-item-sso " href="/settings/selfservice_sso.htm"><span class="nav-icon"></span><span class="nav-text ">Sign In Settings</span></a></li></ul></li><li><a class="nav-item-reports collapsed" href="/reports/site_traffic.htm"><span class="nav-icon"></span><span class="nav-text reports">Reports</span></a><ul id="reportsSubNav" style="margin-bottom: 0" class="nav nav-stacked nav-tabs collapse  "><li><a class="nav-item-site_traffic " href="/reports/site_traffic.htm"><span class="nav-icon"></span><span class="nav-text ">Site Traffic</span></a></li><li><a class="nav-item-tracked_urls " href="/reports/tracked_urls.htm"><span class="nav-icon"></span><span class="nav-text ">Tracked URLs</span></a></li><li><a class="nav-item-processed_words " href="/reports/processed_words.htm"><span class="nav-icon"></span><span class="nav-text ">Processed Words</span></a></li><li><a class="nav-item-issues_report " href="/reports/issues_report.htm"><span class="nav-icon"></span><span class="nav-text ">Issues</span></a></li><li><a class="nav-item-smart_match_report " href="/reports/smart_match.htm"><span class="nav-icon"></span><span class="nav-text ">SmartMatch Leverage</span></a></li><li><a class="nav-item-translation_velocity_report " href="/reports/translation_velocity_report.htm"><span class="nav-icon"></span><span class="nav-text ">Translation Velocity</span></a></li><li><a class="nav-item-smart_match_orig " href="/reports/smart_match_orig.htm"><span class="nav-icon"></span><span class="nav-text ">SmartMatch</span></a></li><li><a class="nav-item-word_count " href="/reports/project/word_count.htm"><span class="nav-icon"></span><span class="nav-text ">Word Counts</span></a></li><li><a class="nav-item-words_under_management " href="/reports/words_under_management.htm"><span class="nav-icon"></span><span class="nav-text ">Words Under Management</span></a></li></ul></li></ul></div></div></div>
                </div>
                <div style="opacity: 1;" class="primaryRightColumn">
-                   
-                       
-                   
-                   
-                   <div id="applicationMessageContainer" class="row fixedWidth"><div style="display: none;"><div class="col-md-12">    <div class="alert alert-warning alert-dismissable applicationMessage">        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" title="Dismiss">?</button>            </div></div></div></div>
-                   <div id="patternManagementMain" class="patterns patternManagement">
-                   <div class="row fixedWidth top-bar">    
-                    <div class="col-md-12">        <h1>Pattern Library</h1>                    <p>Create new patterns from <a href="/content/content.htm#approve" target="_blank"><strong>Awaiting Authorization</strong></a> or <a href="/content/content.htm#in-progress" target="_blank"><strong>In Progress</strong></a> by selecting strings and picking “Create Pattern” from the “Action” menu. On this page you can update the hint that is shown for placeholders to translators. Click a placeholder below to edit its label.</p>                <div class="counts"></div>    </div>
-                    </div>
-                   <div class="row fixedWidth">    
-                   <div class="panel panel-default patternListContainer">        
-                   <div class="panel-heading">            
-                   <div class="row">                
-                   <div class="col-md-6">                    
-                   <h4>Strings <small class="patternCount"><span><span> 8 of 8 </span></span></small></h4> 
-                   <!--You have <strong>X new suggested patterns.</strong>     -->
-                   </div>                
-                   <div class="col-md-6">                    
-                   <div class="filter-section">
-                   <div>
-                   <div style="display: none;" class="loader"></div>
-                   <form novalidate="novalidate" role="form"><div class="row"><div class="col-md-6"><div class="form-group "><select style="display: none;" name="active" class="">                    <option value="active" selected="selected">Only active</option>                    <option value="inactive" selected="selected">Only inactive</option>                    <option value="all" selected="selected">All patterns</option>            </select><div title="" style="width: 100%;" class="chosen-container chosen-container-single chosen-container-single-nosearch"><a class="chosen-single" tabindex="-1"><span>Only active</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input readonly="" autocomplete="off" type="text"></div><ul class="chosen-results"></ul></div></div>    </div>        </div>        <div class="col-md-6">           
-                   <div class="input-group search">                <input class="form-control keywordSearch" name="keywords" placeholder="Enter Keywords" type="text">                <span class="input-group-btn">                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>                </span>            
-                   </div></div></div></form></div></div></div></div></div>
-                   
-                   <div class="panel-body patternList">
-                        <div class="content showContent">
-                        <div style="display: block;">    
-                        <div class="contents-container">
-                        <div style="display: block;">
-                        <p>You have <strong>X new suggested patterns.</strong> What would you like to do?</p>
-                        </div></div></div></div>
-                        <div>
-                            <div class="alert alert-info filter" style="display:none"></div>
-                            <ul class="list-group">
-                                <li class="list-group-item">    
-                                    <div class="row">        
-                                        <div class="col-md-9 segments">
-                                            <span data-modelcid="c177"><a> &gt; </a>Test</span>
-                                            <span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c179">1+ characters</span>
-                                        </div>
-                                        <div class="col-md-3 text-right">            
-                                            <div class="btn-group" role="group">                
-                                                <button style="width:96px;" class="btn  btn-default  js-state">Deactivate</button>
-                                                <button class="btn btn-default delete">Delete</button>
-                                            </div>                    
-                                        </div>
-                                        
-<div class="col-md-3 col-lg-2 snapshot-col   request-page-title-container ">                
-<div class="snapshotContainerWrapper">                    
-<div class="snapshot-container">                                                
-<div class="snapshot-holder">                                
-<h6 data-original-title="TITLE" class="request-page-title" data-toggle="tooltip" data-placement="right" title="">TITLE</h6>                                                    
-</div>                                            
-</div>                
-</div>                
-</div> 
-                                </div></li>
-                                &nbsp;
-                                <li class="list-group-item">    <div class="row">        <div class="col-md-9 segments"><span data-modelcid="c220">Smile</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">1+ characters</span></div>        <div class="col-md-3 text-right">            <div class="btn-group" role="group">                <button style="width:96px;" class="btn  btn-default  js-state">                                            Deactivate                                    </button>                                    <button class="btn btn-default delete">Delete</button>                            </div>                    </div>    </div></li>
-                                <li class="list-group-item">    <div class="row">        <div class="col-md-9 segments"><span data-modelcid="c227">Smil</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c229">1+ characters</span><span data-modelcid="c231">e</span></div>        <div class="col-md-3 text-right">            <div class="btn-group" role="group">                <button style="width:96px;" class="btn  btn-default  js-state">                                            Deactivate                                    </button>                                    <button class="btn btn-default delete">Delete</button>                            </div>                    </div>    </div></li>
-                                <li class="list-group-item">    <div class="row">        <div class="col-md-9 segments"><span data-modelcid="c184">S</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c186">1+ characters</span><span data-modelcid="c188">iley face</span></div>        <div class="col-md-3 text-right">            <div class="btn-group" role="group">                <button style="width:96px;" class="btn  btn-default  js-state">                                            Deactivate                                    </button>                                    <button class="btn btn-default delete">Delete</button>                            </div>                    </div>    </div></li>
-                                <li class="list-group-item">    <div class="row">        <div class="col-md-9 segments"><span data-modelcid="c193">S</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c195">1+ characters</span><span data-modelcid="c197">ley face</span></div>        <div class="col-md-3 text-right">            <div class="btn-group" role="group">                <button style="width:96px;" class="btn  btn-default  js-state">                                            Deactivate                                    </button>                                    <button class="btn btn-default delete">Delete</button>                            </div>                    </div>    </div></li>
-                                <li class="list-group-item">    <div class="row">        <div class="col-md-9 segments"><span data-modelcid="c202">Smile</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c204">1+ characters</span><span data-modelcid="c206">ce</span></div>        <div class="col-md-3 text-right">            <div class="btn-group" role="group">                <button style="width:96px;" class="btn  btn-default  js-state">                                            Deactivate                                    </button>                                    <button class="btn btn-default delete">Delete</button>                            </div>                    </div>    </div></li>
-                                <li class="list-group-item">    <div class="row">        <div class="col-md-9 segments"><span data-modelcid="c211">Smil</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c213">1+ characters</span><span data-modelcid="c215">ace</span></div>        <div class="col-md-3 text-right">            <div class="btn-group" role="group">                <button style="width:96px;" class="btn  btn-default  js-state">                                            Deactivate                                    </button>                                    <button class="btn btn-default delete">Delete</button>                            </div>                    </div>    </div></li>
-                            </ul>
-                            <div style="display: block;" class="empty"></div>
-                            <div class="addResultContainer">    
-                                <div class="addResultLoader">
-                                    <div style="display: none;" class="spinner"></div>
-                                </div>
-                            </div>
-                        </div>
-                   </div>
-                   
-</div></div></div>
+     
+                   <div id="applicationMessageContainer" class="row fixedWidth"><div style="display: none;"><div class="col-md-12">  </div></div></div>  
+                   <div id="glossary">
+            <div style="display: none;" class="contentFetch spinner"></div>
+            <div class="glossaryContentWrapper">
+            <div class="module">    
+            <div class="glossary-layout">        
+            <div class="content">            
 
-    
-               </div>
-       </div>
+            <div class="col-md-12">        <h1>Pattern Library</h1>                    <p>Create new patterns from <a href="/content/content.htm#approve" target="_blank"><strong>Awaiting Authorization</strong></a> or <a href="/content/content.htm#in-progress" target="_blank"><strong>In Progress</strong></a> by selecting strings and picking “Create Pattern” from the “Action” menu. On this page you can update the hint that is shown for placeholders to translators. Click a placeholder below to edit its label.</p> </div>
+        
+            <div class="row fixedWidth glossary-list glossaryContent"><div class="col-md-12">   
+            <div class="glossary-toolbar"><div class="col-md-12 glossaryToolbar">
+            <div class="btn-group addTerm">    
+            <h4>Strings <small class="patternCount"><span><span> 2 of 4 </span></span></small></h4> </div>
+            <div id="gearMenu" class="gearMenu pull-right"><div><div class="btn-group pull-right" style="margin-left: 15px">    
+            <button type="button" class="dropdown-toggle glyphicon glyphicon-cog btn btn-default btn-input-height" data-toggle="dropdown" title=""></button> 
+            <ul class="dropdown-menu pull-right" role="menu">        <li><a class="js-rename"><i class="glyphicon glyphicon-pencil"></i> Rename</a></li> 
+            <li><a class="js-export"><i class="glyphicon glyphicon-export"></i> Export</a></li>        <li><a class="js-addNewGlossary">
+            <i class="glyphicon glyphicon-plus"></i> Create New</a></li>        <li class="divider"></li>        <li class="suggestionsSwitcher">
+            <a>Disable Suggestions</a></li>        <li class="glossaryChange"><a>Use a different glossary</a></li>    </ul></div></div></div>
+            <div class="row btn-group col-md-4 pull-right">    <form id="termsSearchForm">        <div class="form-group">            
+            <div class="input-group">                <input class="form-control filter" name="filter" placeholder="Enter Keywords" type="text">    
+            <span class="input-group-btn">                    <button type="submit" class="btn btn-default searchBtn">                        
+            <i class="glyphicon glyphicon-search"></i>                    </button>                </span>            </div>        </div>    </form>
+            </div></div></div>  
+            
+            <div id="workarea" style="position: absolute">        <div style="position: fixed; top: 227px;" id="glossaryWrapper">            
+            <div style="display: none;" class="spinner"></div>            <div class="content">                
+            <div id="patternManagementMain" class="patterns patternManagement">
+            <div id="suggestionsList" class="glossarySuggestions"><div style="display: block;"><div class="panel panel-warning">    
+            <div class="panel-heading text-left">        <div class="btn-group">            <input class="selectAll" type="checkbox">        </div> 
+            
+            <div class="btn-group">            <button type="button" class="btn btn-input-height btn-default dropdown-toggle" data-toggle="dropdown">Actions                <span class="caret"></span>            </button>            <ul class="dropdown-menu bulkActions" role="menu">                <li>                    <a href="#" class="bulkAddToGlossary">Add Pattern</a>                </li>                <li>                    <a href="#" class="bulkIgnore">Ignore</a>                </li>            </ul>        </div>        <div class="headerText btn-group">You have <strong>5 new suggested patterns.</strong> What would you like to do?</div>        <div class="sliderWrapper btn-group pull-right" style="display: block;">            <div class="sliderLabel leftLabel" style="">show fewer</div>            <div class="sliderBlock">            <div class="form-group slider-block">        <div id="" class="slider slider-horizontal"><div class="slider-track"><div style="left: 0px; width: 0%;" class="slider-track-low"></div><div style="left: 0%; width: 0%;" class="slider-selection"></div><div style="right: 0px; width: 100%;" class="slider-track-high"></div><div tabindex="0" style="left: 0%;" class="slider-handle min-slider-handle round"></div><div tabindex="0" style="left: 0%;" class="slider-handle max-slider-handle round hide"></div></div><div style="left: 0%; margin-left: 0px;" class="tooltip tooltip-main top hide"><div class="tooltip-arrow"></div><div class="tooltip-inner">0</div></div><div style="" class="tooltip tooltip-min top hide"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div style="" class="tooltip tooltip-max top hide"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div></div><input data="value: '0'" style="display: none;" name="" class="form-control bootstrap-slider     sliderInput " value="0" data-slider-tooltip="hide" type="text"></div>            </div>            <div class="sliderLabel rightLabel">show more</div>        </div>    </div>    
+            
+            <div class="panel-body" id="suggestedList">
+            </div>
+            
+            </div></div></div>
+
+            <div id="patternsList" class="termsList">
+
+            <div class="panel-body"><div class="row glossaryTermView"><div class="col-md-9 segments"><span data-modelcid="c220">Smile</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">1+ characters</span></div><div class="translation col-md-2">                </div><div class="partOfSpeech col-md-2"></div><div class="definition col-md-3"></div>        <div class="revise sm-mr pull-right">        <a class="btn btn-default js-edit">Deactivate</a>  <a class="btn btn-default js-edit">Delete</a>  </div></div></div>
+            <div class="panel-body"><div class="row glossaryTermView"><div class="col-md-9 segments"><span data-modelcid="c220">ANY</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">9+ characters</span> test</div><div class="translation col-md-2">                </div><div class="partOfSpeech col-md-2"></div><div class="definition col-md-3"></div>        <div class="revise sm-mr pull-right">        <a class="btn btn-default js-edit">Deactivate</a>  <a class="btn btn-default js-edit">Delete</a>  </div></div></div>
+            
+            </div>
+            
+            </div></div></div></div></div></div></div></div></div></div></div></div>
+
        <div class="end_content"></div>
    
    </div>
@@ -437,9 +408,19 @@
    
        
 <!--<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"1140700","applicationTime":108,"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"bbe639a2f9","transactionName":"ZABbYBAFWRBYBUINC11Ka1ETEVIQTSdCEBZaB0xAB0tUDFcSUwoQHBVYQBYBRQ1KSF4QCQ==","agent":"js-agent.newrelic.com\/nr-686.min.js","errorBeacon":"bam.nr-data.net"}</script>
-   -->
-    <!-- JSON Parse Script -->
-    <script>
+   -->        
+   
+   <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+    var url = "http://54.152.17.49:8080/suggest/?site_id=92";
+
+    /*$(document).ready(function(){
+        var JSON_resp = $("#suggestedList").load(url);
+        alert(JSON.stringify(JSON_resp));
+        parseJSON(JSON_resp);
+    });*/
+    
     function loadXMLDoc()
     {
     var xmlhttp = new XMLHttpRequest();
@@ -455,25 +436,30 @@
 
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
+    }
+    
+    loadXMLDoc();
 
     function parseJSON(arr) {
         var json_resp = "";
         var out = "";
         json_resp = JSON.parse(arr);
 
-        out = '<h3>Patterns for site_id: ' + json_resp.site_id + '</h3>'
-
         for(var i=0; i < json_resp.patterns.length; i++) {
-            out += '<p> id = ' + json_resp.patterns[i].id + '</p><p> pattern = ' + json_resp.patterns[i].pattern + '</p>';
+        
+        out += 
+            '<div style="display: block;"><div class="row glossaryTermView"><div class="glossaryCheckbox pull-left"><input name="selectedRow" type="checkbox">    </div>                <div class="suggestedTerm col-md-5">' +
+            '<span data-modelcid="c220">' + json_resp.patterns[i].pattern + '</span>' +
+            '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + '1+ characters' + '</span></div>' +
+            '<div class="col-md-6 pull-right"><ul class="glossaryActions pull-right">            <li>                <a href="#" class="IgnoreTerm">Ignore</a>            </li>            <li>                <a href="#" class="btn btn-default acceptTerm">Add Pattern</a>            </li>        </ul>    </div></div></div>'
 
-            for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
+            /*for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
                 out += '<p> string_examples = ' + json_resp.patterns[i].string_examples[j] + '</p>';
-            }
+            }*/
         }
-        document.getElementById("myDiv").innerHTML = out;
-    }
+        document.getElementById("suggestedList").innerHTML = out;
     }
     </script>
-    
+
 </body>
 </html>
