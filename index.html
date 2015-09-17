@@ -85,11 +85,11 @@
     function parseJSON(arr) {
         var out = "";
         var i;
+        alert(arr, arr.length);
         for(i = 0; i < arr.length; i++) {
             out += '<p>' + arr[i].site_id + '</p><br><p>';
-            out_new = out + 'JSON'
         }
-        document.getElementById("myDiv").innerHTML = out_new;
+        document.getElementById("myDiv").innerHTML = out;
     }
     }
     </script>
