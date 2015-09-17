@@ -65,17 +65,20 @@
     xmlhttp.send();
 
     function parseJSON(arr) {
+        var json_resp = "";
         var out = "";
         var i;
-        out = JSON.parse(arr);
+        json_resp = JSON.parse(arr);
         
-        alert(out.site_id);
-        alert(out.patterns[0].id);
-        alert(out.patterns[0].pattern);
-        alert(out.patterns[0].string_examples);
+        alert(json_resp.site_id);
+        alert(json_resp.patterns[0].id);
+        alert(json_resp.patterns[0].pattern);
+        alert(json_resp.patterns[0].string_examples);
+        
+        out = '<h3>Patterns for site: ' + json_resp.site_id + '</h3>'
         
         for(i = 0; i < 3; i++) {
-            out += '<p>' + arr[i].site_id + '</p><br><p>';
+            out += '<p> id = ' + json_resp.patterns[i].id + '</p><br><p>';
         }
         document.getElementById("myDiv").innerHTML = out;
     }
