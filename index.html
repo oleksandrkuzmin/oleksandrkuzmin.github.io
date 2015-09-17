@@ -27,21 +27,6 @@
 </head>
 
 <body>
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Patterns
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -54,9 +39,6 @@
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -87,8 +69,12 @@
         var i;
         alert(arr);
         alert(arr.length);
-        alert(arr[0]);
-        alert(arr[1]);
+        alert(arr[0].site_id);
+        alert(arr[0].["site_id"]]);
+        alert(arr[1].site_id);
+        alert(arr[1].["site_id"]]);
+        alert(arr[0].patterns);
+        alert(arr[0].["patterns"]]);
         for(i = 0; i < arr.length; i++) {
             out += '<p>' + arr[i].site_id + '</p><br><p>';
         }
