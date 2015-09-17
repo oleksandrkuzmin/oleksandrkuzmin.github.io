@@ -46,7 +46,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <h2>Pattern Library</h2>
+                    <h1>Pattern Library</h1>
                     <button type="button" onclick="loadXMLDoc()">Generate patterns</button>
                     <div id="myDiv">No patterns
                     </div>
@@ -87,6 +87,8 @@
         var i;
         alert(arr);
         alert(arr.length);
+        alert(arr[0]);
+        alert(arr[1]);
         for(i = 0; i < arr.length; i++) {
             out += '<p>' + arr[i].site_id + '</p><br><p>';
         }
