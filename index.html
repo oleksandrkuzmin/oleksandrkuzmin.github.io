@@ -46,9 +46,8 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" id="id01">
                         <h1>Pattern Library</h1>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Add Pattern</a>
                     </div>
                 </div>
             </div>
@@ -67,12 +66,13 @@
     <!-- Get JSON Script -->
     <script>
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://www.akuzmin.smartlingdemo.com/json/patterns.json";
+    var url = "myTutorials.txt";
 
     xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var myArr = JSON.parse(xmlhttp.responseText);
-            myFunction(myArr);
+    
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = JSON.parse(xmlhttp.responseText);
+        myFunction(myArr);
         }
     }
 
@@ -80,16 +80,14 @@
     xmlhttp.send();
 
     function myFunction(arr) {
-        var out = "";
-        var i;
-        for(i = 0; i < arr.length; i++) {
-            out += '<a href="' + arr[i].url + '">' +
-            arr[i].display + '</a><br>';
-        }
-    
-        document.getElementById("id01").innerHTML = out;
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
     }
-</script>
+    document.getElementById("id01").innerHTML = out;
+    }
+    </script>
 
 </body>
 
