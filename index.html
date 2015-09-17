@@ -84,7 +84,7 @@
         var i;
         
         for(i = 0; i < arr.length; i++) {
-            out += '<a href="' + arr[i].url + '">' + arr[i].display + '</a><br>';
+            out += arr[i].strings + '; ' + arr[i].patterns + ';';
         }
         
         document.getElementById("id01").innerHTML = out;
