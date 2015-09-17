@@ -73,7 +73,7 @@
     xmlhttp.onreadystatechange = function() {
     
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var JSON_resp = document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+        var JSON_resp = xmlhttp.responseText;
         parseJSON(JSON_resp);
         }
     }
@@ -88,7 +88,7 @@
         for(i = 0; i < arr.length; i++) {
             out += '<p>' + arr[i].strings + '</p><br><p>' + arr[i].patterns + '</p><br>';
         }
-        document.getElementById("id01").innerHTML = out;
+        document.getElementById("myDiv").innerHTML = out;
 
     }
     </script>
