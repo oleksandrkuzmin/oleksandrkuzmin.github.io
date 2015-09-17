@@ -71,11 +71,14 @@
         alert(arr.length);
         alert(arr[0].site_id);
         alert(arr[0]["site_id"]);
-        alert(arr["site_id"][0]);
         alert(arr[1].site_id);
         alert(arr[1]["site_id"]);
         alert(arr[0].patterns);
         alert(arr[0]["patterns"]);
+        alert("stop");
+        var out_new = "";
+        out_new = JSON.parse(arr);
+        alert(out_new);
         for(i = 0; i < arr.length; i++) {
             out += '<p>' + arr[i].site_id + '</p><br><p>';
         }
