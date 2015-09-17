@@ -46,7 +46,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <!-- Get JSON Script -->
+       <!-- JSON Parse Script -->
     <script>
     function loadXMLDoc()
     {
@@ -54,8 +54,8 @@
     var url = "http://54.152.17.49:8080/suggest/?site_id=92";
 
     xmlhttp.onreadystatechange = function() {
-    
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+    if (xmlhttp.status == 200) {
         var JSON_resp = xmlhttp.responseText;
         parseJSON(JSON_resp);
         }
@@ -67,24 +67,18 @@
     function parseJSON(arr) {
         var json_resp = "";
         var out = "";
-        var i;
         json_resp = JSON.parse(arr);
-        
-        alert(json_resp.site_id);
-        alert(json_resp.patterns[0].id);
-        alert(json_resp.patterns[0].pattern);
-        alert(json_resp.patterns[0].string_examples);
-        
-        out = '<h3>Patterns for site: ' + json_resp.site_id + '</h3>'
-        
-        for(i = 0; i < 3; i++) {
-            alert("now");
-            alert(json_resp.patterns[0].id);
-            out += '<p> id = ' + json_resp.patterns[0].id + '</p><br><p>';
+
+        out = '<h3>Patterns for site_id: ' + json_resp.site_id + '</h3>'
+
+        for(var i=0; i < json_resp.patterns.length; i++) {
+            out += '<p> id = ' + json_resp.patterns[i].id + '</p><p> pattern = ' + json_resp.patterns[i].pattern + '</p>';
+
+            for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
+                out += '<p> string_examples = ' + json_resp.patterns[i].string_examples[j] + '</p>';
+            }
         }
-
         document.getElementById("myDiv").innerHTML = out;
-
     }
     }
     </script>
