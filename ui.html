@@ -244,6 +244,7 @@
    <link rel="stylesheet" href="//s-dashboard.smartling.com/09161936/static/dashboard-2.0/css/patterns.css"/>
    <link rel="stylesheet" type="text/css" href="//s-dashboard.smartling.com/09161936/static/dashboard-2.0/css/glossary.css" />
    <link rel="stylesheet" href="//s-dashboard.smartling.com/09161936/static/dashboard-2.0/css/tools.css"/>
+   
 </head>
 <body class='default'>
 
@@ -314,8 +315,8 @@
            </div>
             <div class="smt-progress-view-wrapper"><div class="header-progress-bar"></div></div>
        </div>
-       <div id="successMessageContainer"></div>
-       <div id="messageContainer"></div>
+       <!--<div id="successMessageContainer"></div>
+       <div id="messageContainer"></div>-->
        <div id="main">
                <!-- Main Nav -->
                <div class="primaryLeftColumn">
@@ -323,20 +324,26 @@
                </div>
                <div style="opacity: 1;" class="primaryRightColumn">
      
-                   <div id="applicationMessageContainer" class="row fixedWidth"><div style="display: none;"><div class="col-md-12">  </div></div></div>  
-                   <div id="glossary">
+                   <!--<div id="applicationMessageContainer" class="row fixedWidth"><div style="display: none;"><div class="col-md-12">  </div></div>
+                   </div>  -->
+            
+            <!-- Main Patterns-->
+            <div id="glossary">
             <div style="display: none;" class="contentFetch spinner"></div>
             <div class="glossaryContentWrapper">
             <div class="module">    
             <div class="glossary-layout">        
-            <div class="content">            
-
-            <div class="col-md-12">        <h1>Pattern Library</h1>                    <p>Create new patterns from <a href="/content/content.htm#approve" target="_blank"><strong>Awaiting Authorization</strong></a> or <a href="/content/content.htm#in-progress" target="_blank"><strong>In Progress</strong></a> by selecting strings and picking "Create Pattern" from the "Action" menu. On this page you can update the hint that is shown for placeholders to translators. Click a placeholder below to edit its label.</p> </div>
+            <div class="content">
+            <!--Patterns header-->
+            <div class="col-md-12">        <h1>Pattern Library</h1>                    <p>Create new patterns from <a href="/content/content.htm#approve" target="_blank"><strong>Awaiting Authorization</strong></a> or <a href="/content/content.htm#in-progress" target="_blank"><strong>In Progress</strong></a> by selecting strings and picking "Create Pattern" from the "Action" menu. On this page you can update the hint that is shown for placeholders to translators. Click a placeholder below to edit its label.</p> 
+            </div>
         
-            <div class="row fixedWidth glossary-list glossaryContent"><div class="col-md-12">   
+            <div class="row fixedWidth glossary-list glossaryContent"><div class="col-md-12">
+
+            <!--Patterns list headers-->            
             <div class="glossary-toolbar"><div class="col-md-12 glossaryToolbar">
             <div class="btn-group addTerm">    
-            <h4>Strings <small class="patternCount"><span><span> 2 of 4 </span></span></small></h4> </div>
+            <h4>Strings <small class="patternCount"><span><span> 2 of 2 </span></span></small></h4> </div>
             <div id="gearMenu" class="gearMenu pull-right"><div><div class="btn-group pull-right" style="margin-left: 15px">    
             <button type="button" class="dropdown-toggle glyphicon glyphicon-cog btn btn-default btn-input-height" data-toggle="dropdown" title=""></button> 
             <ul class="dropdown-menu pull-right" role="menu">        <li><a class="js-rename"><i class="glyphicon glyphicon-pencil"></i> Rename</a></li> 
@@ -348,20 +355,22 @@
             <span class="input-group-btn">                    <button type="submit" class="btn btn-default searchBtn">                        
             <i class="glyphicon glyphicon-search"></i>                    </button>                </span>            </div>        </div>    </form>
             </div></div></div>  
-            
+
             <div id="workarea" style="position: absolute">        <div style="position: fixed; top: 227px;" id="glossaryWrapper">            
             <div style="display: none;" class="spinner"></div>            <div class="content">                
+            
+            <!--Patterns manager-->
             <div id="patternManagementMain" class="patterns patternManagement">
+            <!--Suggested list-->
             <div id="suggestionsList" class="glossarySuggestions"><div style="display: block;"><div class="panel panel-warning">    
             <div class="panel-heading text-left">        <div class="btn-group">            <input class="selectAll" type="checkbox">        </div> 
-            
             <div class="btn-group">            <button type="button" class="btn btn-input-height btn-default dropdown-toggle" data-toggle="dropdown">Actions                <span class="caret"></span>            </button>            <ul class="dropdown-menu bulkActions" role="menu">                <li>                    <a href="#" class="bulkAddToGlossary">Add Pattern</a>                </li>                <li>                    <a href="#" class="bulkIgnore">Ignore</a>                </li>            </ul>        </div>        <div class="headerText btn-group">You have <strong>5 new suggested patterns.</strong> What would you like to do?</div>        <div class="sliderWrapper btn-group pull-right" style="display: block;">            <div class="sliderLabel leftLabel" style="">show fewer</div>            <div class="sliderBlock">            <div class="form-group slider-block">        <div id="" class="slider slider-horizontal"><div class="slider-track"><div style="left: 0px; width: 0%;" class="slider-track-low"></div><div style="left: 0%; width: 0%;" class="slider-selection"></div><div style="right: 0px; width: 100%;" class="slider-track-high"></div><div tabindex="0" style="left: 0%;" class="slider-handle min-slider-handle round"></div><div tabindex="0" style="left: 0%;" class="slider-handle max-slider-handle round hide"></div></div><div style="left: 0%; margin-left: 0px;" class="tooltip tooltip-main top hide"><div class="tooltip-arrow"></div><div class="tooltip-inner">0</div></div><div style="" class="tooltip tooltip-min top hide"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><div style="" class="tooltip tooltip-max top hide"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div></div><input data="value: '0'" style="display: none;" name="" class="form-control bootstrap-slider     sliderInput " value="0" data-slider-tooltip="hide" type="text"></div>            </div>            <div class="sliderLabel rightLabel">show more</div>        </div>    </div>    
-            
+
             <div class="panel-body" id="suggestedList">
             </div>
-            
             </div></div></div>
 
+            <!--Patterns list-->
             <div id="patternsList" class="termsList">
 
             <div class="panel-body"><div class="row glossaryTermView"><div class="col-md-9 segments"><span data-modelcid="c220">Smile</span><span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">1+ characters</span></div><div class="translation col-md-2">                </div><div class="partOfSpeech col-md-2"></div><div class="definition col-md-3"></div>        <div class="revise sm-mr pull-right">        <a class="btn btn-default js-edit">Deactivate</a>  <a class="btn btn-default js-edit">Delete</a>  </div></div></div>
@@ -371,16 +380,18 @@
             
             </div></div></div></div></div></div></div></div></div></div></div></div>
 
-       <div class="end_content"></div>
+            <div class="end_content"></div>
    
-   </div>
+        </div>
 
+   <!-- а нужен футер???
    <div id="footer" class='dashboard-footer'>
        <p class='copyright'><small>&copy; Copyright 2009 - 2015 Smartling, Inc. | Smartly built in NYC</small></p>
    </div>
    <div id='smartWorkFlowModal' class="SmtUI-jquery-ui-modal" title="SmartMatch Workflow Settings"></div>
    <div id='dialogManager'></div>
-   <div id="default-plupload-container"><a id="fake-plupload-button" class="btn btn-default"></a></div>
+   <div id="default-plupload-container"><a id="fake-plupload-button" class="btn btn-default"></a></div>-->
+
    <!--<script type="text/javascript">
 
 
@@ -412,15 +423,14 @@
    
    <!-- jQuery -->
     <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap default -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <!--Main Functions-->
     <script type="text/javascript">
     var url = "http://54.152.17.49:8080/suggest/?site_id=92";
 
-    /*$(document).ready(function(){
-        var JSON_resp = $("#suggestedList").load(url);
-        alert(JSON.stringify(JSON_resp));
-        parseJSON(JSON_resp);
-    });*/
-    
     function loadXMLDoc()
     {
     var xmlhttp = new XMLHttpRequest();
@@ -442,22 +452,41 @@
 
     function parseJSON(arr) {
         var json_resp = "";
-        var out = "";
+        var suggested_list = "";
         json_resp = JSON.parse(arr);
 
         for(var i=0; i < json_resp.patterns.length; i++) {
-        
-        out += 
-            '<div style="display: block;"><div class="row glossaryTermView"><div class="glossaryCheckbox pull-left"><input name="selectedRow" type="checkbox">    </div>                <div class="suggestedTerm col-md-5">' +
-            '<span data-modelcid="c220">' + json_resp.patterns[i].pattern + '</span>' +
-            '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + '1+ characters' + '</span></div>' +
-            '<div class="col-md-6 pull-right"><ul class="glossaryActions pull-right">            <li>                <a href="#" class="IgnoreTerm">Ignore</a>            </li>            <li>                <a href="#" class="btn btn-default acceptTerm">Add Pattern</a>            </li>        </ul>    </div></div></div>'
+            var pattern = json_resp.patterns[i].pattern
+            var pattern_st = pattern.indexOf("(.{");
+            var pattern_en = pattern.indexOf("})") + 2;
+            var pattern_text_st = pattern.slice(0, pattern_st);
+            //var pattern_text_st = '<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>'
+            var pattern_text_en = pattern.slice(pattern_en);
+            var chars = pattern.slice(pattern_st + 3, pattern_en -3);
 
-            /*for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
-                out += '<p> string_examples = ' + json_resp.patterns[i].string_examples[j] + '</p>';
-            }*/
-        }
-        document.getElementById("suggestedList").innerHTML = out;
+            suggested_list += 
+
+                '<div style="display: block;"><div class="row glossaryTermView"><div class="glossaryCheckbox pull-left"><input name="selectedRow" type="checkbox">    </div>                <div class="suggestedTerm col-md-5">' +
+                '<a style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse' + i + '">&gt;&nbsp;&nbsp;&nbsp;</a>' +
+                '<span data-modelcid="c220">' + pattern_text_st + '</span>' +
+                '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '+ characters </span>' +
+                '<span data-modelcid="c220">' + pattern_text_en + '</span></div>' +
+                '<div class="col-md-6 pull-right"><ul class="glossaryActions pull-right">' +
+                '<li>                <a href="#" class="IgnoreTerm">Ignore</a>            </li>' +
+                '<li>                <a href="#" class="btn btn-default acceptTerm">Add Pattern</a>' +
+                '</li>        </ul>    </div>' + 
+                '<div class="suggestedTerm col-md-5"><div id="collapse' +i + '" class="panel-collapse collapse out"><div class="panel-body"><i>String examples</i>'
+
+                for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
+                    
+                    suggested_list += '<br>' + json_resp.patterns[i].string_examples[j] +
+                        '<div class="col-md-6 pull-right"><ul class="glossaryActions pull-right">' +
+                        '<li>                <a href="#" class="IgnoreTerm">Make Exception</a>            </li>' +
+                        '</ul>    </div>'
+                }
+                suggested_list += '</div></div></div></div></div>'
+            }
+        document.getElementById("suggestedList").innerHTML = suggested_list;
     }
     </script>
 
