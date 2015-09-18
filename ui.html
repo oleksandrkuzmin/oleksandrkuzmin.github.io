@@ -480,12 +480,14 @@
                 '<div class="suggestedTerm col-md-5"><div id="collapse_strings' +i + '" class="panel-collapse collapse out"><i>Strings:</i>'
 
                 for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
-                    
-                    suggested_list += '<br>' + json_resp.patterns[i].string_examples[j] +
-                        '<div class="glossaryActions pull-right">' +
-                        '<a href="#" class="IgnoreTerm">Make Exception</a>' +
-                        '</div>'
+                
+                    suggested_string = '<br><span id="string_exc' + i + j + '">' + json_resp.patterns[i].string_examples[j] +
+                        '<div id="make_exc' + i + j + '" class="glossaryActions pull-right">' +
+                        '<a href="#' + i + j + '" onclick="MyFunction(' + i + ',' + j + ',' + '\'' + json_resp.patterns[i].string_examples[j] + '\');" class="IgnoreTerm">Make Exception</a>' +
+                        '</div></span>'
+                    suggested_list += suggested_string
                 }
+
             suggested_list += '</div></div></div></div></div>'
 
             patterns_list += 
@@ -509,7 +511,20 @@
         document.getElementById("suggestedList").innerHTML = suggested_list;
         document.getElementById("patternsList").innerHTML = patterns_list;
     }
+    
+
     </script>
 
+    <script>
+    function MyFunction(i,j, str_exc) {
+        MyEl = "string_exc" + i + j
+        document.getElementById(MyEl).innerHTML =
+        '<span id="string_exc' + i + j + '"><del>' + str_exc +
+        '</del><div id="make_exc' + i + j + '" class="glossaryActions pull-right">' +
+        '<font color="red" class="IgnoreTerm">Excluded</font>' +
+        '</div></span>'
+    }
+    </script>
+    
 </body>
 </html>
