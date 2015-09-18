@@ -343,7 +343,7 @@
             <!--Patterns list headers-->            
             <div class="glossary-toolbar"><div class="col-md-12 glossaryToolbar">
             <div class="btn-group addTerm">    
-            <h4>Strings <small class="patternCount"><span><span> 2 of 2 </span></span></small></h4> </div>
+            <h4>Strings <small class="patternCount"><span><span id="str_numbers"> No patterns </span></span></small></h4> </div>
             <div id="gearMenu" class="gearMenu pull-right"><div><div class="btn-group pull-right" style="margin-left: 15px">    
             <button type="button" class="dropdown-toggle glyphicon glyphicon-cog btn btn-default btn-input-height" data-toggle="dropdown" title=""></button> 
             <ul class="dropdown-menu pull-right" role="menu">        <li><a class="js-rename"><i class="glyphicon glyphicon-pencil"></i> Rename</a></li> 
@@ -365,9 +365,9 @@
             <div id="suggestionsList" class="glossarySuggestions"><div style="display: block;"><div class="panel panel-warning">    
             <div class="panel-heading text-left">        <div class="btn-group">            <input class="selectAll" type="checkbox">        </div> 
             <div class="btn-group">            <button type="button" class="btn btn-input-height btn-default dropdown-toggle" data-toggle="dropdown">Actions                <span class="caret"></span>            </button>            <ul class="dropdown-menu bulkActions" role="menu">                <li>                    
-            <a href="#" class="bulkAddToGlossary">Add Pattern</a>                </li>                <li>                    
-            <a href="#" class="bulkIgnore">Ignore</a>                </li>            </ul>        </div>        
-            <div class="headerText btn-group">You have <strong>5 new suggested patterns.</strong> What would you like to do?</div></div>    
+            <a href="#" class="bulkAddToGlossary">Add Patterns</a>                </li>                <li>                    
+            <a href="#" class="bulkIgnore">Ignore Patterns</a>                </li>            </ul>        </div>        
+            <div id="suggested_num" class="headerText btn-group">You have no new suggested patterns.</div></div>    
 
             <div class="panel-body" id="suggestedList">
             </div>
@@ -386,43 +386,6 @@
             <div class="end_content"></div>
    
         </div>
-
-   <!-- а нужен футер???
-   <div id="footer" class='dashboard-footer'>
-       <p class='copyright'><small>&copy; Copyright 2009 - 2015 Smartling, Inc. | Smartly built in NYC</small></p>
-   </div>
-   <div id='smartWorkFlowModal' class="SmtUI-jquery-ui-modal" title="SmartMatch Workflow Settings"></div>
-   <div id='dialogManager'></div>
-   <div id="default-plupload-container"><a id="fake-plupload-button" class="btn btn-default"></a></div>   -->
-
-   <!--<script type="text/javascript">
-
-
-        require(['common' ] , function() {
-
-            require(["jquery" , "appBase/SmtLingApp" ], function ($ , SmtLingApp) {
-
-                appConfig.mainJs = "patternsManagement";
-                appConfig.autostartBackboneHistory = false;
-
-                
-                    appConfig.gdnType = true;
-                
-                    appConfig.isAdmin = true;
-                
-
-                var app = new SmtLingApp(appConfig);
-
-            });
-
-        });
-
-        </script>-->
-
-   
-       
-<!--<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"1140700","applicationTime":108,"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"bbe639a2f9","transactionName":"ZABbYBAFWRBYBUINC11Ka1ETEVIQTSdCEBZaB0xAB0tUDFcSUwoQHBVYQBYBRQ1KSF4QCQ==","agent":"js-agent.newrelic.com\/nr-686.min.js","errorBeacon":"bam.nr-data.net"}</script>
-   -->        
    
    <!-- js libraries -->
     <script src="js/jquery.js"></script>
@@ -456,8 +419,9 @@
         var suggested_list = "";
         var patterns_list = "";
         json_resp = JSON.parse(arr);
+        len = json_resp.patterns.length
 
-        for(var i=0; i < json_resp.patterns.length; i++) {
+        for(var i=0; i < len; i++) {
             var pattern = json_resp.patterns[i].pattern
             var pattern_st = pattern.indexOf("(.{");
             var pattern_en = pattern.indexOf("})") + 2;
@@ -474,18 +438,17 @@
                 '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '+ characters </span>' +
                 '<span data-modelcid="c220">' + pattern_text_en + '</span></div>' +
                 '<div class="col-md-5 pull-right"><ul class="glossaryActions pull-right">' +
-                '<li><a class="IgnoreTerm" style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse_pattern' + i + '"">Ignore</a>            </li>' +
-                '<li><a class="btn btn-default acceptTerm" style="text-decoration: none" data-toggle="collapse" data-target="#collapse_pattern' + i + ', #add_pattern' + i + '"">Add Pattern</a>' +
+                '<li><a onclick="IgnorePattern(' + len + ')" class="IgnoreTerm" style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse_pattern' + i + '"">Ignore</a>            </li>' +
+                '<li><a onclick="AddPattern(' + len + ')" class="btn btn-default acceptTerm" style="text-decoration: none" data-toggle="collapse" data-target="#collapse_pattern' + i + ', #add_pattern' + i + '"">Add Pattern</a>' +
                 '</li>        </ul>    </div>' + 
                 '<div class="suggestedTerm col-md-5"><div id="collapse_strings' +i + '" class="panel-collapse collapse out"><i>Strings:</i>'
 
                 for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
                 
-                    suggested_string = '<br><span id="string_exc' + i + j + '">' + json_resp.patterns[i].string_examples[j] +
+                    suggested_list += '<br><span id="string_exc' + i + j + '">' + json_resp.patterns[i].string_examples[j] +
                         '<div id="make_exc' + i + j + '" class="glossaryActions pull-right">' +
-                        '<a href="#' + i + j + '" onclick="MyFunction(' + i + ',' + j + ',' + '\'' + json_resp.patterns[i].string_examples[j] + '\');" class="IgnoreTerm">Make Exception</a>' +
+                        '<a onclick="ExcludeSrt(' + i + ',' + j + ',' + '\'' + json_resp.patterns[i].string_examples[j] + '\');" class="IgnoreTerm">Make Exception</a>' +
                         '</div></span>'
-                    suggested_list += suggested_string
                 }
 
             suggested_list += '</div></div></div></div></div>'
@@ -498,31 +461,46 @@
                 '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '+ characters </span>' +
                 '<span data-modelcid="c220">' + pattern_text_en + '</span></div>' +
                 '<a class="btn btn-default js-edit">Deactivate</a>' +
+                '<a class="btn btn-default js-edit">Edit</a>' +
                 '<a class="btn btn-default js-edit">Delete</a> </div></div></div>'
-            
-            //'<div class="panel-body"><div class="row glossaryTermView"><div class="col-md-9 segments">' +
-            //'<span data-modelcid="c220">Smile</span>' +
-            //'<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">1+ characters</span></div>' +
-            //'<a class="btn btn-default js-edit">Deactivate</a>' +
-            //'<a class="btn btn-default js-edit">Delete</a>' +
-            //'</div></div>'
         }
 
         document.getElementById("suggestedList").innerHTML = suggested_list;
         document.getElementById("patternsList").innerHTML = patterns_list;
+        document.getElementById("suggested_num").innerHTML = 'You have <strong>' + i + ' new suggested patterns.</strong> What would you like to do?';
     }
     
 
     </script>
 
     <script>
-    function MyFunction(i,j, str_exc) {
+    var patt_num = 0
+    var sugg_num = 1
+
+    function ExcludeSrt(i,j, str_exc) {
         MyEl = "string_exc" + i + j
         document.getElementById(MyEl).innerHTML =
         '<span id="string_exc' + i + j + '"><del>' + str_exc +
         '</del><div id="make_exc' + i + j + '" class="glossaryActions pull-right">' +
         '<font color="red" class="IgnoreTerm">Excluded</font>' +
         '</div></span>'
+    }
+
+    function IgnorePattern(suggested_num) {
+        suggested_num = suggested_num - sugg_num
+        sugg_num += 1
+        alert(suggested_num);
+        if (suggested_num == 0){
+            document.getElementById("suggested_num").innerHTML = 'You have no new suggested patterns.';
+        } else{
+            document.getElementById("suggested_num").innerHTML = 'You have <strong>' + suggested_num + ' new suggested patterns.</strong> What would you like to do?';
+        }
+    }
+    
+    function AddPattern(suggested_num) {
+        patt_num += 1
+        document.getElementById("str_numbers").innerHTML = patt_num + " of " + patt_num;
+        IgnorePattern(suggested_num);
     }
     </script>
     
