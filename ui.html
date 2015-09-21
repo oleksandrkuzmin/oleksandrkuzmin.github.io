@@ -405,8 +405,6 @@
     function loadXMLDoc()
     {
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://54.152.17.49:8080/suggest/?site_id=92";
-
     xmlhttp.onreadystatechange = function() {
 
     if (xmlhttp.status == 200) {
@@ -414,7 +412,6 @@
         parseJSON(JSON_resp);
         }
     }
-
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
     }
