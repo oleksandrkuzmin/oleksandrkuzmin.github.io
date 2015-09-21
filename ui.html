@@ -414,53 +414,141 @@
     
     loadXMLDoc();
 
-    function parseJSON(arr) {
+    function parseJSON(resp) {
         var json_resp = "";
         var suggested_list = "";
         var patterns_list = "";
-        json_resp = JSON.parse(arr);
-        len = json_resp.patterns.length
+        json_resp = JSON.parse(resp);
+        len = json_resp.patterns.length;
+        var condition = true;
+        
+        function check_char(ar) {
+            for(var m=0; m < ar.length; m++) {
+                if(m == 0) {
+                    //alert(ar);
+                    //alert(ar[0]);
+                    //alert(ar);
+                    pattern_text += '<span data-modelcid="c220">' + ar[0] + '</span>';
+                } else {
+                    //var pattern_st = pattern.indexOf("(.{");
+                    //var pattern_en = pattern.indexOf("})") + 2;
+                    pattern_text += '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">1+ characters</span><span data-modelcid="c220">' + ar[m].slice(4) + '</span>';
+                    //var pattern_text_en += pattern.slice(pattern_en) + '</span>';
+                    //var chars = pattern.slice(pattern_st + 3, pattern_en -3) + "+ characters";
+                }
+            }
+        }
+
+        function check_digit(ar) {
+            if (ar.indexOf("digit") > -1 ) { 
+                pattern_text += '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">1+ digits</span>';
+            } else{
+                pattern_text += '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">1+ spaces</span>';
+            }
+            if(ar.indexOf("(.{") > -1 ) { 
+                var new_ar = ar.slice(9)
+                var newest_ar = new_ar.split("(.{");
+                //pattern_text += '<span data-modelcid="c220">' + ar[9] + '</span>';
+                //alert(newest_ar);
+                check_char(newest_ar);
+            } else {
+                pattern_text += '<span data-modelcid="c220">' + ar.slice(9) + '</span>';
+            }
+        }
+
+        String.prototype.unescapeHtml = function () {
+            var temp = document.createElement("div");
+            temp.innerHTML = this;
+            var result = temp.childNodes[0].nodeValue;
+            temp.removeChild(temp.firstChild);
+            return result;
+        } 
 
         for(var i=0; i < len; i++) {
-            var pattern = json_resp.patterns[i].pattern
-            var pattern_st = pattern.indexOf("(.{");
-            var pattern_en = pattern.indexOf("})") + 2;
-            var pattern_text_st = pattern.slice(0, pattern_st);
-            var pattern_text_en = pattern.slice(pattern_en);
-            var chars = pattern.slice(pattern_st + 3, pattern_en -3);
+            var pattern_text = "";
+            var pattern = json_resp.patterns[i].pattern;
+            //pattern = pattern.unescapeHtml();
+            //alert(pattern);
+            //var new_ar = pattern.split("(.{");
+            //check_char(new_ar);
+            
+            if (pattern.indexOf("([:") > -1 ) {
+                var ar = pattern.split("([:");
+                for(var n=0; n < ar.length; n++) {
+                    if (n == 0) {
+                        if(ar[0].indexOf("(.{") > -1 ) { 
+                            var new_ar = ar[0].split("(.{");
+                            check_char(new_ar);
+                        } else {
+                            pattern_text += '<span data-modelcid="c220">' + ar[n] + '</span>';
+                        }
+                    } else {
+                       check_digit(ar[n]);
+                    }
+                }
+            } else if(pattern.indexOf("(.{") > -1 ) {
+                var ar = pattern.split("(.{");
+                check_char(ar);
+                }
 
-            suggested_list += 
+            suggested_list +=
                 '<div id="collapse_pattern' + i + '" class="panelcollapse collapse in">' +
                 '<div style="display: block;"><div class="row glossaryTermView"><div class="glossaryCheckbox pull-left"><input name="selectedRow" type="checkbox">    </div>' +
                 '<div class="suggestedTerm col-md-5">' +
                 '<a style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse_strings' + i + '">&gt;&nbsp;&nbsp;&nbsp;</a>' +
-                '<span data-modelcid="c220">' + pattern_text_st + '</span>' +
-                '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '+ characters </span>' +
-                '<span data-modelcid="c220">' + pattern_text_en + '</span></div>' +
-                '<div class="col-md-5 pull-right"><ul class="glossaryActions pull-right">' +
+                //'<span data-modelcid="c220">' + pattern_text_st + '</span>' +
+                //'<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '</span>' +
+                pattern_text + 
+                //'<span data-modelcid="c220">' + pattern_text_en + '</span>' +
+                '</div><div class="col-md-5 pull-right"><ul class="glossaryActions pull-right">' +
                 '<li><a onclick="IgnorePattern(' + len + ')" class="IgnoreTerm" style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse_pattern' + i + '"">Ignore</a>            </li>' +
                 '<li><a onclick="AddPattern(' + len + ')" class="btn btn-default acceptTerm" style="text-decoration: none" data-toggle="collapse" data-target="#collapse_pattern' + i + ', #add_pattern' + i + '"">Add Pattern</a>' +
                 '</li>        </ul>    </div>' + 
-                '<div class="suggestedTerm col-md-5"><div id="collapse_strings' +i + '" class="panel-collapse collapse out"><i>Strings:</i>'
+                '<div id="collapse_strings' + i + '" class="panel-collapse collapse out col-md-50 pull-left"><i>Strings:</i>'
 
                 for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
-                
-                    suggested_list += '<br><span id="string_exc' + i + j + '">' + json_resp.patterns[i].string_examples[j] +
-                        '<div id="make_exc' + i + j + '" class="glossaryActions pull-right">' +
-                        '<a onclick="ExcludeSrt(' + i + ',' + j + ',' + '\'' + json_resp.patterns[i].string_examples[j] + '\');" class="IgnoreTerm">Make Exception</a>' +
-                        '</div></span>'
+                    //alert(json_resp.patterns[i].string_examples[j]);
+                    //alert(json_resp.patterns[i].string_examples[j].length);
+                    if (json_resp.patterns[i].string_examples[j].indexOf("&gt;") > -1) {
+                        json_resp.patterns[i].string_examples[j] = json_resp.patterns[i].string_examples[j].unescapeHtml()
+                        json_resp.patterns[i].string_examples[j] = json_resp.patterns[i].string_examples[j].replace(/"/g, "")
+                        //alert(json_resp.patterns[i].string_examples[j]);
+                        //json_resp.patterns[i].string_examples[j] = "William Hill"
+                    } else if (json_resp.patterns[i].string_examples[j].length > 110 && json_resp.patterns[i].string_examples[j].length < 160){
+                        var pos = json_resp.patterns[i].string_examples[j].lastIndexOf(" ");
+                        json_resp.patterns[i].string_examples[j] = json_resp.patterns[i].string_examples[j].substring(0,pos) + "<br/>" + json_resp.patterns[i].string_examples[j].substring(pos+1)
+                        //json_resp.patterns[i].string_examples[j] = new_string
+                        //json_resp.patterns[i].string_examples[j] = "lalala"
+                        //alert(new_string);
+                    }
+                    
+                    if (json_resp.patterns[i].string_examples[j].indexOf("\'") > -1) {
+                        json_resp.patterns[i].string_examples[j] = json_resp.patterns[i].string_examples[j].replace(/'/g, "")
+                    }
+                    
+
+                    
+                    if (j < 10) {
+                        suggested_list += '<br><span id="string_exc' + i + j + '">' + json_resp.patterns[i].string_examples[j] +
+                            '<span id="make_exc' + i + j + '" class="glossaryActions pull-right">' +
+                            '<a href="#"; onclick="ExcludeSrt(' + i + ',' + j + ',' + '\'' + json_resp.patterns[i].string_examples[j] + '\');" class="IgnoreTerm pull-right">Make Exception</a>' +
+                            '</span></span>'
+                    } else {
+                        suggested_list += '<br><span data-modelcid="c220" id="string_exc' + i + j + '">' + json_resp.patterns[i].string_examples[j] + '</span>';
+                    }
                 }
 
-            suggested_list += '</div></div></div></div></div>'
+            suggested_list += '</div></div></div></div>'
 
             patterns_list += 
                 '<div id="add_pattern' + i + '" class="panelcollapse collapse">' +
                 '<div class="panel-body"><div class="row glossaryTermView"><div class="col-md-9 segments">' +
                 //'<a style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse_strings' + i + '">&gt;&nbsp;&nbsp;&nbsp;</a>' +
-                '<span data-modelcid="c220">' + pattern_text_st + '</span>' +
-                '<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '+ characters </span>' +
-                '<span data-modelcid="c220">' + pattern_text_en + '</span></div>' +
-                '<a class="btn btn-default js-edit">Deactivate</a>' +
+                //'<span data-modelcid="c220">' + pattern_text_st + '</span>' +
+                //'<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '</span>' +
+                pattern_text + 
+                //'<span data-modelcid="c220">' + pattern_text_en + '</span>' +
+                '</div><a class="btn btn-default js-edit">Deactivate</a>' +
                 '<a class="btn btn-default js-edit">Edit</a>' +
                 '<a class="btn btn-default js-edit">Delete</a> </div></div></div>'
         }
@@ -479,6 +567,7 @@
 
     function ExcludeSrt(i,j, str_exc) {
         MyEl = "string_exc" + i + j
+        alert(str_exc);
         document.getElementById(MyEl).innerHTML =
         '<span id="string_exc' + i + j + '"><del>' + str_exc +
         '</del><div id="make_exc' + i + j + '" class="glossaryActions pull-right">' +
@@ -489,7 +578,6 @@
     function IgnorePattern(suggested_num) {
         suggested_num = suggested_num - sugg_num
         sugg_num += 1
-        alert(suggested_num);
         if (suggested_num == 0){
             document.getElementById("suggested_num").innerHTML = 'You have no new suggested patterns.';
         } else{
