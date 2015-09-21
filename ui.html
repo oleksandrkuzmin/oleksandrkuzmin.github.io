@@ -393,8 +393,15 @@
     
     <!--Main Functions-->
     <script type="text/javascript">
-    var url = "http://54.152.17.49:8080/suggest/?site_id=92";
-
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    var site_id = getParameterByName('site_id');
+    var url = "http://54.152.17.49:8080/suggest/?site_id=" + site_id;
+    
     function loadXMLDoc()
     {
     var xmlhttp = new XMLHttpRequest();
