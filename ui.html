@@ -498,7 +498,7 @@
             suggested_list +=
                 '<div id="collapse_pattern' + i + '" class="panelcollapse collapse in">' +
                 '<div style="display: block;"><div class="row glossaryTermView"><div class="glossaryCheckbox pull-left"><input name="selectedRow" type="checkbox">    </div>' +
-                '<div class="suggestedTerm col-md-5">' +
+                '<div class="suggestedTerm col-md-6">' +
                 '<a style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse_strings' + i + '">&gt;&nbsp;&nbsp;&nbsp;</a>' +
                 //'<span data-modelcid="c220">' + pattern_text_st + '</span>' +
                 //'<span title="" data-original-title="" class="placeholder label unlabeled" data-modelcid="c222">' + chars + '</span>' +
@@ -508,7 +508,7 @@
                 '<li><a onclick="IgnorePattern(' + len + ')" class="IgnoreTerm" style="text-decoration: none" data-toggle="collapse" data-parent="#accordion" href="#collapse_pattern' + i + '"">Ignore</a>            </li>' +
                 '<li><a onclick="AddPattern(' + len + ')" class="btn btn-default acceptTerm" style="text-decoration: none" data-toggle="collapse" data-target="#collapse_pattern' + i + ', #add_pattern' + i + '"">Add Pattern</a>' +
                 '</li>        </ul>    </div>' + 
-                '<div id="collapse_strings' + i + '" class="panel-collapse collapse out col-md-50 pull-left"><i>Strings:</i>'
+                '<div class="suggestedTerm col-md-9"><div id="collapse_strings' + i + '" class="panel-collapse collapse out col-md-50 pull-left"><i>Strings:</i>'
 
                 for(var j=0; j < json_resp.patterns[i].string_examples.length; j++) {
                     //alert(json_resp.patterns[i].string_examples[j]);
@@ -520,7 +520,7 @@
                         //json_resp.patterns[i].string_examples[j] = "William Hill"
                     } else if (json_resp.patterns[i].string_examples[j].length > 110 && json_resp.patterns[i].string_examples[j].length < 160){
                         var pos = json_resp.patterns[i].string_examples[j].lastIndexOf(" ");
-                        json_resp.patterns[i].string_examples[j] = json_resp.patterns[i].string_examples[j].substring(0,pos) + "<br/>" + json_resp.patterns[i].string_examples[j].substring(pos+1)
+                        //json_resp.patterns[i].string_examples[j] = json_resp.patterns[i].string_examples[j].substring(0,pos) + "<br/>" + json_resp.patterns[i].string_examples[j].substring(pos+1)
                         //json_resp.patterns[i].string_examples[j] = new_string
                         //json_resp.patterns[i].string_examples[j] = "lalala"
                         //alert(new_string);
@@ -542,7 +542,7 @@
                     }
                 }
 
-            suggested_list += '</div></div></div></div>'
+            suggested_list += '</div></div></div></div></div>'
 
             patterns_list += 
                 '<div id="add_pattern' + i + '" class="panelcollapse collapse">' +
